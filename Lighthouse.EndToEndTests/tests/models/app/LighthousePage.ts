@@ -10,8 +10,8 @@ export class LighthousePage extends Header {
         this.page = page;
     }
 
-    async open(pageUrl: string): Promise<OverviewPage> {
-        await this.page.goto(pageUrl);
+    async open(): Promise<OverviewPage> {
+        await this.page.goto('/');
         return this.goToOverview();
     }
 
@@ -60,7 +60,7 @@ export class LighthousePage extends Header {
 
     private async GetContributorsButton(): Promise<Locator> {
         return this.page.getByTestId('https://github.com/LetPeopleWork/Lighthouse/blob/main/CONTRIBUTORS.md');
-    };
+    }
 
     private async GetReportIssueButton(): Promise<Locator> {
         return this.page.getByLabel('Report an Issue');
